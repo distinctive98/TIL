@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>My Page</title>
+
+	<style>
+	
+		body{
+			margin-top : 0;
+			background-image : linear-gradient(to bottom, #ffffff, #ffffff, #f6d5ee);
+		}
+	
+		header{
+			width : 95%;
+			margin : 0 auto;
+			height : 150px;
+			background-image : linear-gradient(to right, #99e6ff, #f6d5ee);
+			text-align : center;
+		}
+		
+		header > h1 {
+			color : #737373;
+			padding : 20px;
+			text-shadow : 3px 3px 3px white;
+		}
+		
+		a {
+			text-decoration : none;
+			font-size : 1em;
+		}
+		
+		nav > a {
+			margin-left : 100px;
+			margin-right : 100px;
+		}
+		
+		a:hover {
+			font-weight : bold;
+		}
+		
+		section > article {
+			width : 95%;
+			margin : 30px auto;
+			/*border : 1px solid gray;*/
+			border : 1px dotted gray;
+			border-radius : 10px;
+		}
+		
+		h2, ul, table, article > p{
+			margin-left : 30px;
+		}
+		
+		h2 {
+			color : #737373;
+		}
+		
+		h2 > span {
+			color : #96bfe9;
+		}
+	
+		table{
+			margin-bottom : 30px;
+			border : 1px solid #cce6ff;
+			border-collapse : collapse;
+		}
+		
+		th, td{
+			border : 1px dotted gray;
+			padding : 10px;
+			text-align : center;
+		}
+		
+		th{
+			color : #737373;
+			font-size : 1em;
+			background-color : #cce6ff;
+		}
+		
+		tr:hover {
+			opacity : 0.7;
+		}
+		
+		figure{
+			text-align : center;
+		}
+		
+		img {
+			width : 70%;
+		}
+		
+		img:hover {
+			opacity : 0.5;'
+		}
+		
+		aside {
+			text-align : center;
+			margin-bottom : 20px;
+		}
+		
+		footer{
+			background-image : linear-gradient(to right, #f6d5ee, #cce6ff, #f6d5ee);
+			text-align : center;
+			height : 50px;
+			padding-top : 20px;
+		}
+		
+		footer > span {
+			padding : 10px;
+		}
+		
+		/*바나나*/
+		li > span{
+			background-color : #dfdf20;
+		}
+			
+	</style>
+
+</head>
+<body>
+	<header>
+		<h1>My Page</h1>
+		<nav>
+			<a href="http://www.google.com">Google</a>
+			<a href="http://www.github.com">GitHub</a>
+			<a href="http://www.slack.com">Slack</a>
+		</nav>
+	</header>
+	
+	<section>
+		<article>
+			<h2>나의 <span>소개</span></h2>
+			<ul>
+				<li>이름 : 이영걸</li>
+				<li>별명 : YG</li>
+				<li>관심기술 : <a href="https://ko.wikipedia.org/wiki/%EC%8A%A4%ED%94%84%EB%A7%81_%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC"><i>Spring Framework</i></a></li>
+				<li>취미 : <span>바나나</span> 먹기</li>
+			</ul>
+		</article>
+		<article>
+			<h2>올해 최고의 <span>배달</span> 맛집</h2>
+			<table>
+				<tr>
+					<th>가게명</th>
+					<th>음식명</th>
+					<th>별점</th>
+				</tr>
+				<tr>
+					<td>후라이드 참 잘하는집 성수점</td>
+					<td>순살 간장치킨</td>
+					<td>★★★★☆</td>
+				</tr>
+				<tr>
+					<td>울엄마 김치찜 성수점</td>
+					<td>묵은지 삼겹김치찜</td>
+					<td>★★★★☆</td>
+				</tr>
+				<tr>
+					<td>전설의 짬뽕 서울숲점</td>
+					<td>차돌박이 짬뽕</td>
+					<td>★★★★★</td>
+				</tr>
+			</table>
+		</article>
+		<article>
+			<h2>자랑하고 싶은 <span>우리동네</span> 명소</h2>
+			<p>지난 5월 3일 미국의 커피브랜드 ‘블루보틀’의 한국 1호점이 서울 성수동 카페거리에 문을 열었다. 개점 첫 날 새벽부터 몰려든 인파로 뚝섬역 일대가 문전성시를 이루며 수많은 사람들의 방문 후기가 이어졌다.</p>
+			<figure>
+				<img src="../images/blue_bottle.jpg">
+				<figcaption><a href="https://store.naver.com/restaurants/detail?entry=plt&id=1725895520&query=%EB%B8%94%EB%A3%A8%EB%B3%B4%ED%8B%80%EC%BB%A4%ED%94%BC%20%EC%84%B1%EC%88%98&tab=main"><i>블루 버틀 성수점</i></a></figcaption>
+			</figure>
+		</article>
+	</section>
+	<aside>
+		<iframe width="789" height="444" src="https://www.youtube.com/embed/uA9nkmBcUoo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		<!-- <video src="mediaexam/trailer.mp4" controls></video> --> 
+	</aside>
+	<footer>
+		<span><i>이 문서는 저작권에 보호받고 있습니다. 주의!</i></span>
+	</footer>
+</body>
+</html>

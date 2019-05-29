@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<style>
+		#n {
+			color : red;
+		}
+		
+		#y {
+			color : blue;
+		}
+	</style>
+
+</head>
+<body>
+	<pre>
+		<script>
+			var num1 = window.prompt();
+			var num2 = window.prompt();
+			var oper = window.prompt();
+			
+			var result = null;
+			switch(true){
+				case oper == '+': result = (num1/1) + (num2/1); break;
+				case oper == '-': result = num1 - num2; break;
+				case oper == '*': result = num1 * num2; break;
+				case oper == '/': result = num1 / num2; break;
+				case oper == '%': result = num1 % num2; break;
+				default: document.write("<h2 id=\"n\">\"+,-,*,/,% 만 입력 가능 \"</h2>");
+			}
+			
+			if(result!=null){
+				document.write("<h2 id=\"y\">" + num1 + "와 " + num2 + "의 " + oper + " 연산결과는 " + result + "</h2>");	
+			}
+			
+		</script>
+	</pre>
+</body>
+</html>
