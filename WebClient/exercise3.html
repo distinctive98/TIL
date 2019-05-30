@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<pre>
+		<script>
+			var arr = new Array(10, 5, 7, 21, 4, 8, 18);
+			var sum=0;
+			for(var i in arr)
+				sum += arr[i];
+			document.write("<h1>모든 원소의 합 : " +sum+ "</h1>");
+			
+			arr.sort(function(a, b){return b-a});
+			document.write("<ul><li>최대값 : " +arr[0]+"<li>최소값 : "+arr[arr.length-1]+ "</ul>")
+		</script>
+	</pre>
+
+</body>
+</html>

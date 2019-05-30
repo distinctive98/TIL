@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<pre>
+		<script>
+			var arr = new Array(10);
+			for(var i=0; i<10; i++)
+				arr[i] = Math.floor(Math.random()*50)+1; //1~50
+				
+			document.write("정렬 전 : " + arr + "<br>");
+			document.write("정렬 후 : " + arr.sort(function(a, b){return a-b;}) + "<br>");
+			
+			/*
+			for(var i in arr){
+				i == arr.length-1 && document.write(arr[i] + "<br>");
+				i < arr.length-1 && document.write(arr[i] + ", ");
+			}
+			
+			
+			
+			document.write("정렬 후 : ")
+			document.write(arr);
+			for(var i in arr){
+				
+				//i == arr.length-1 && document.write(arr[i] + "<br>");
+				//i < arr.length-1 && document.write(arr[i] + ", ");
+			}
+			*/
+		</script>
+	</pre>
+
+</body>
+</html>

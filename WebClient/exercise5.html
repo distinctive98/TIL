@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<pre>
+		<script>
+			var sum = function(n){
+				//n값이 있으면
+				if(n){
+					var result=0;
+					for(var i=1; i<=n; i++)
+						result+=i;
+					return result;
+				}
+			}
+			
+			//var rnum = Math.floor(Math.random()*6);
+			var rnum = parseInt(Math.random()*6);
+			var result = !rnum ? sum() : sum(rnum);
+			!result ? document.write("결과값이 없어요!") : document.write("호출 결과값 : " + result);			
+		</script>
+	</pre>
+</body>
+</html>
