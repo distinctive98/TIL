@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<pre>
+		<script src="util.js"></script>
+		<script>
+			var printObject = function(p){
+				if(typeof p != "object" || Array.isArray(p)){
+					return;
+				}
+				
+				writeColor(p.msg, p.tag, p.color);
+			}
+
+			obj = {tag : "h1", color : "red", msg : "노란맛"};
+			printObject(obj);
+			
+			obj = {tag : "h2", color : "blue", msg : "초록맛"};
+			printObject(obj);
+			
+			obj = {tag : "h1", color : "green", msg : "빨간맛"};
+			printObject(obj);
+			
+			obj = {tag : "h2", color : "purple", msg : "파란맛"};
+			printObject(obj);
+			
+			obj = {tag : "h1", color : "orange", msg : "보라맛"};
+			printObject(obj);
+			
+			
+		</script>
+	</pre>
+</body>
+
+</html>
+

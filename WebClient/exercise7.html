@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<pre>
+		<script>
+			var printH1 = function(content){
+				document.write("<h1>"+content+"</h1>");
+			}
+			
+			var printH4 = function(content){
+				document.write("<h4>"+content+"</h4>");
+			}
+			
+			var apply = function(arr, func){
+				if(!Array.isArray(arr) || typeof func != "function"){
+					console.log("아규먼트 오류");
+					return false;
+				}
+				
+				for(var i in arr)
+					func(arr[i]);
+				return true;
+			}
+			
+			var arr = new Array();
+			var temp;
+			
+			while(true){
+				temp = window.prompt();
+				if(temp == null) break;
+				arr.push(temp);
+			}
+			
+			var week = new Date().getDay();
+			var result;
+			
+			if(!week)	
+				result = apply("ㅋㅋ", printH1);
+			else if(week%2)
+				result = apply(arr,printH1);
+			else{
+				if(week==6)
+					result = apply(arr);
+				else
+					result = apply(arr,printH4);
+			}
+			
+			result ? window.alert("성공") : window.alert("실패"); 
+		
+		</script>
+	</pre>
+</body>
+</html>
