@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		var getToday = function(){
+			var date = new Date();
+			var month = date.getMonth() + 1;
+			return "오늘은" + date.getFullYear() + "년" + month + "월" + date.getDate() +"일입니다.";
+		}
+		
+		var changeColor;
+		
+		window.onload = function(){
+			var outDom = document.getElementsByTagName("output")[0];
+			outDom.innerHTML = "<h2>" + getToday() + "</h2>";
+			
+			changeColor = function(color){
+				outDom.style.color = color;
+			}
+		}
+	</script>
+	
+	<output></output>
+	<button onclick="changeColor('#e6ccff')">파스텔핑크</button>
+	<button onclick="changeColor('#ccffd9')">스카이그린</button>
+	<button onclick="changeColor('#ccccff')">보라빛파랑</button>
+
+</body>
+</html>

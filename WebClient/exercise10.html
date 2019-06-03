@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		var num = parseInt((Math.random()*3)+1);
+		var siteName = new Array('', '다음', '네이버', '구글');
+		var url = new Array(
+				"",
+				"http://www.daum.net/",
+				"http://www.naver.com/",
+				"http://www.google.com/"
+				);
+		//window는 생략 가능
+		var result = window.confirm(siteName[num]+" 이동?");
+		if(result)
+			location.href = url[num];
+		else
+			location.href = "/edu/first.html";
+	</script>
+</body>
+</html>
