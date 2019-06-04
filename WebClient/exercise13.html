@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<button id="button1">이미지보이기</button>
+	<button id="button2">이미지숨기기</button>
+	<br>
+	<img style ='visibility:hidden' src="http://70.12.113.182:8000/edu/images/banana.jpg"></img>
+	
+	<script>
+		var imgDom = document.querySelector('img');
+		
+		var buttonDom1 = document.getElementById('button1');
+		buttonDom1.addEventListener("click", function(){
+			imgDom.style.visibility = 'visible';
+		});
+		
+		var buttonDom2 = document.getElementById('button2');
+		buttonDom2.addEventListener("click", function(){
+			imgDom.style.visibility = 'hidden';
+		});
+	</script>
+</body>
+</html>

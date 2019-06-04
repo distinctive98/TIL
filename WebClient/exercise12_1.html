@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>
+	section {
+		width : 80%;
+		height : 600px;
+		margin : 0 auto;
+		border : 3px solid gold;
+		border-radius : 10px;
+	}
+	
+	h1 {
+		width : 80%;
+		margin : 20px auto;
+		padding : 20px;
+		text-align : center;
+	}
+	
+	div {
+		width : 80%;
+		margin : 0 auto;
+		text-align : center;
+	}
+	
+	button {
+		border : 1px solid gold;
+		border-radius : 5px;
+		padding : 5px 25px;
+		margin-left : 10px;
+		text-align : center;
+		background-color : white;
+	}
+	
+	output {
+		width : 80%;
+		height : 200px;
+		margin : 0 auto;
+		padding : 20px;
+		text-align : center;
+	}
+	
+</style>
+
+</head>
+<body>
+	<section>
+		<h1 >구구단</h1>
+		<div>	
+			<button onClick="output(1)">1단</button>
+			<button onClick="output(2)">2단</button>
+			<button onClick="output(3)">3단</button>
+			<button onClick="output(4)">4단</button>
+			<button onClick="output(5)">5단</button>
+			<button onClick="output(6)">6단</button>
+			<button onClick="output(7)">7단</button>
+			<button onClick="output(8)">8단</button>
+			<button onClick="output(9)">9단</button>
+		</div>
+		<output></output>
+	</section>
+	
+	<script>
+		function gugudan(n){
+			var arr = new Array()
+			for(var i=1; i <=9; i++)
+				arr.push("<h3>" + n + " * " + i + " = "+ n*i + "</h3>");
+			return arr;
+		}
+	
+		function output(n){
+			var outDom = document.querySelector('output');
+			var result = gugudan(n);
+			outDom.innerHTML = null;
+			for(var i in result)
+				outDom.innerHTML += result[i];	
+		}
+	</script>
+</body>
+</html>

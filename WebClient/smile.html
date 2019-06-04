@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<canvas id="canvas" width="800px" height="800px"></canvas>
+		
+	<script>
+		function draw(){
+			var canvas = document.getElementById('canvas').getContext("2d");
+
+			var gradient = canvas.createLinearGradient(250, 250, 550, 550);
+			gradient.addColorStop("0", "red");
+			gradient.addColorStop("0.2", "orange");
+			gradient.addColorStop("0.4" ,"yellow");
+			gradient.addColorStop("0.6" ,"green");
+			gradient.addColorStop("0.8" ,"blue");
+			gradient.addColorStop("1.0", "purple");
+			
+			canvas.fillStyle = gradient;
+			
+			//얼굴
+			canvas.beginPath();
+			canvas.arc(400,400,200,0,Math.PI*2, false);
+			canvas.fill();
+			
+			canvas.strokeStyle = "rgb(255, 255, 255)";
+			canvas.lineWidth = 50;
+			
+			//왼쪽 눈
+			canvas.beginPath(); 
+			canvas.arc(320,350,40,0,Math.PI*2, false);
+			canvas.stroke();
+			canvas.fill();
+					
+			//오른쪽 눈
+			canvas.beginPath(); 
+			canvas.arc(480,350,40,0,Math.PI*2, false);
+			canvas.stroke();
+			canvas.fill();
+			
+			canvas.fillStyle = "rgb(255, 255, 255)";
+			
+			//입
+			canvas.beginPath();
+			canvas.arc(400,430,150,0,Math.PI, false);
+			canvas.fill();
+			
+			canvas.strokeStyle = "rgb(0, 0, 0)";
+			canvas.lineWidth = 20;
+			
+			//막대
+			canvas.beginPath();
+			canvas.moveTo(400, 600);
+			canvas.lineTo(400, 900);
+			canvas.stroke();
+			
+			//Smile!
+			canvas.font = "30px Verdana";
+			gradient = canvas.createLinearGradient(330, 500, 530, 500);
+			gradient.addColorStop("0", "magenta");
+			gradient.addColorStop("0.5", "blue");
+			gradient.addColorStop("1.0", "red");
+			
+			canvas.strokeStyle = gradient;
+			canvas.lineWidth = 1;
+			canvas.strokeText("Big Smile!", 330, 500);
+		}
+		window.addEventListener("load", draw, false);
+	</script>
+</body>
+</html>
