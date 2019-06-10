@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>
+	canvas{
+		border : 3px solid gray;
+	}
+	
+	button{
+		margin-bottom : 10px;
+	}
+</style>
+
+</head>
+<body>
+	<button id="saveImg">저장하기</button>
+	<button id="deleteImg">삭제하기</button>
+	<button id="readImg">읽어오기</button>
+	<br>
+	<canvas id="canvas" width="800px" height="800px"></canvas>
+		
+	<script>
+		var canvas = document.getElementById('canvas');
+		var canvasText = canvas.getContext("2d");
+	
+		var saveImg = document.getElementById("saveImg");
+		var deleteImg = document.getElementById("deleteImg");
+		var readImg = document.getElementById("readImg");
+		//var img = document.getElementById("canvas");
+		
+		saveImg.addEventListener("click", function(){
+			localStorage.setItem("canvas", canvas.toDataURL());
+		});
+		
+		deleteImg.addEventListener("click", function(){
+			canvasText.clearRect(0, 0, canvas.width, canvas.height);
+			//canvasText.beginPath();
+		});
+		
+		readImg.addEventListener("click", function(){
+			//이미지 객체 생성
+			var loadImg = new Image();
+			loadImg.src = localStorage.getItem("canvas");
+			//이미지 로드가 완료되면
+			loadImg.onload = function(){
+				canvasText.drawImage(loadImg, 0, 0);
+			}
+		});
+		
+		
+	
+		function draw(){
+					
+			var gradient = canvasText.createLinearGradient(250, 250, 550, 550);
+			gradient.addColorStop("0", "red");
+			gradient.addColorStop("0.2", "orange");
+			gradient.addColorStop("0.4" ,"yellow");
+			gradient.addColorStop("0.6" ,"green");
+			gradient.addColorStop("0.8" ,"blue");
+			gradient.addColorStop("1.0", "purple");
+			
+			canvasText.fillStyle = gradient;
+			
+			
+			//왼쪽 뿔
+			canvasText.beginPath();
+			canvasText.moveTo(250, 250);
+			canvasText.lineTo(250, 350);
+			canvasText.lineTo(350, 250);
+			canvasText.lineTo(250, 250);
+			canvasText.fill();
+			
+			//오른쪽 뿔
+			canvasText.beginPath();
+			canvasText.moveTo(550, 250);
+			canvasText.lineTo(550, 350);
+			canvasText.lineTo(450, 250);
+			canvasText.lineTo(550, 250);
+			canvasText.fill();
+			
+			//얼굴
+			canvasText.beginPath();
+			canvasText.arc(400,400,200,0,Math.PI*2, false);
+			canvasText.fill();
+			
+			canvasText.strokeStyle = "rgb(255, 255, 255)";
+			canvasText.lineWidth = 50;
+			
+			//왼쪽 눈
+			canvasText.beginPath(); 
+			canvasText.arc(320,350,40,0,Math.PI*2, false);
+			canvasText.stroke();
+			canvasText.fill();
+					
+			//오른쪽 눈
+			canvasText.beginPath(); 
+			canvasText.arc(480,350,40,0,Math.PI*2, false);
+			canvasText.stroke();
+			canvasText.fill();		
+			
+			canvasText.fillStyle = "rgb(255, 255, 255)";
+			
+			//입
+			canvasText.beginPath();
+			canvasText.arc(400,430,150,0,Math.PI, false);
+			canvasText.fill();
+			
+			canvasText.strokeStyle = "rgb(0, 0, 0)";
+			canvasText.lineWidth = 20;
+			
+			//막대
+			canvasText.beginPath();
+			canvasText.moveTo(400, 600);
+			canvasText.lineTo(400, 900);
+			canvasText.stroke();
+			
+			//Smile!
+			canvasText.font = "100px Verdana";
+			gradient = canvasText.createLinearGradient(150, 150, 750, 150);
+			gradient.addColorStop("0", "magenta");
+			gradient.addColorStop("0.5", "blue");
+			gradient.addColorStop("1.0", "red");
+			
+			canvasText.strokeStyle = gradient;
+			canvasText.lineWidth = 3;
+			canvasText.strokeText("Big Smile!", 150, 150);
+		}
+		window.addEventListener("load", draw, false);
+	</script>
+</body>
+</html>

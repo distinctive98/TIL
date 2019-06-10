@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>
+	h1{
+		text-shadow : 3px 3px 3px gray;
+	}
+	
+	nav {
+		margin-bottom : 10px;
+	}
+	
+	input {
+		margin-right : 10px;
+	}
+	
+	section {
+		margin-left : 20px;
+		border : 1px solid gray;
+		width : 500px;
+		float : left;
+	}
+	
+	canvas {
+		border : 5px solid gray;
+		float : left;	
+	}
+	
+	img {
+		width : 120px;
+		height : 120px;
+	}
+	
+	#inputMsg {
+		width : 400px;
+	}
+	
+</style>
+
+</head>
+<body>
+	<h1>HTML5로 크리스마스 카드 만들기</h1>
+	
+	<nav>
+		<button id="saveCanvas">저장하기</button>
+		<button id="readCanvas">읽어오기</button>
+		<button id="deleteCanvas">지우기</button>
+	</nav>
+	
+	<nav>
+		<span>배경 칼라 설정 : </span>
+		<input id="bgColor" type="color">
+		<span>테두리 칼라 설정 : </span>
+		<input id="borderColor" type="color">
+		<span>메시지 칼라 설정 : </span>
+		<input id="msgColor" type="color">
+	</nav>
+	
+	<nav>
+		<span>입력 메시지 : </span>
+		<input id="inputMsg">
+	</nav>	
+	
+	<canvas width="500px" height="500px"></canvas>
+	<section>
+	</section>
+	
+	<script>
+	
+		var loadImages = function(){
+			//section태그에 img 삽입
+			for(var i=15; i<=30; i++){
+				section.innerHTML += "<img id='img"+i+"' src='http://70.12.113.182:8000/edu/jsexam/kakao/g"+i+".png'>";
+			}
+		}
+	
+		//Drag&Drop, Canvas 부분
+		var section = document.querySelector("section");
+		var canvas = document.querySelector("canvas");
+		var ctx = canvas.getContext('2d');
+		
+		var loadDD = function(){
+			//img Dom 객체 생성 및 dragstart 이벤트 리스너 설정
+			var images = document.querySelectorAll("section > img");
+			for(var i=0; i<images.length; i++){
+				images[i].addEventListener("dragstart", dragged, false);
+			}		
+			canvas.addEventListener("dragover", dragover, false);
+			canvas.addEventListener("drop", dropped, false);	
+		}
+		var dragged = function(e){
+			console.log("dragged발동");
+			e.dataTransfer.setData('img', e.target.getAttribute('id'));
+			console.log("set : " + e.target.getAttribute('id'));
+			e.dataTransfer.setDragImage(e.target, 0, 0);
+		}
+		
+		var dragover = function(e){
+			console.log("dragover발동");
+			e.preventDefault();
+		}
+		
+		var dropped = function(e){
+			console.log("dropped발동");
+			e.preventDefault();
+			
+			var id = e.dataTransfer.getData('img');
+			console.log("get : " + id);
+			var img = document.getElementById(id);
+			
+			var posx=e.pageX-canvas.offsetLeft;
+			var posy=e.pageY-canvas.offsetTop;
+			
+			//img.style.width = "100px";
+			ctx.drawImage(img,posx,posy, 120, 120);
+		}
+		
+		//Web Storage 부분
+		var saveCanvas = document.getElementById('saveCanvas');
+		var readCanvas = document.getElementById('readCanvas');
+		var deleteCanvas = document.getElementById('deleteCanvas');
+		
+		saveCanvas.addEventListener("click", function(){
+			//alert(canvas.toDataURL());
+			localStorage.setItem("card", canvas.toDataURL());
+		});
+		
+		readCanvas.addEventListener("click", function(){
+			var loadImg = new Image();
+			loadImg.src = localStorage.getItem("card");
+			loadImg.onload = function(){
+				ctx.drawImage(loadImg, 0, 0);
+			}
+		});
+		
+		deleteCanvas.addEventListener("click", function(){
+			ctx.clearRect(0,0,canvas.width, canvas.height);
+		});
+		
+		//컬러 부분
+		var bgColor = document.querySelector('#bgColor');	
+		bgColor.addEventListener("change", function(e){
+			console.log("ChangeEvent : bgColor");
+			//ctx.fillStyle = e.target.value;
+			//ctx.fillRect(0, 0, canvas.width, canvas.height);
+			canvas.style.backgroundColor = e.target.value;
+		}, false);
+		
+		var borderColor = document.querySelector('#borderColor');
+		borderColor.addEventListener("change", function(e){
+			canvas.style.border = "5px solid " + e.target.value;
+		}, false);
+		
+		var msgColor = document.querySelector("#msgColor");
+		msgColor.addEventListener("change", function(e){
+			ctx.fillStyle = e.target.value;	
+		}, false)
+			
+		//문자 입력 부분
+		var inputMsg = document.querySelector("#inputMsg");
+		canvas.addEventListener("click", function(e){
+			var posx=e.pageX-canvas.offsetLeft;
+			var posy=e.pageY-canvas.offsetTop;
+			ctx.font = "30px Verdana";
+			ctx.fillText(inputMsg.value, posx, posy);
+		}, false)
+		
+		window.addEventListener("load", loadImages, false);
+		window.addEventListener("load", loadDD, false);
+	</script>
+</body>
+</html>
