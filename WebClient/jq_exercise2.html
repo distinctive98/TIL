@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			//img 삽입
+			for(var i=20; i<30; i++){
+				if(i==25)
+					$('#imgbox').append('<br>');
+				$('#imgbox').append(function(){
+					var img = "<img src='http://70.12.113.182:8000/edu/jsexam/kakao/g"+i+".png' width=150>";
+					return img;
+				});
+			}
+			
+			//버튼 삽입
+			$('#buttonbox').append(function(){
+				var button = "";
+				button += "<button>모두 진하게</button>";
+				button += "<button>모두 반투명하게</button>";
+				return button;
+			});
+			
+			//css 설정
+			$('img').css('opacity', '0.4');
+			$('button').css('margin-right', '10px');
+			$('section').css('text-align', 'center');
+			
+			//img 이벤트
+			$('img').each(function(){
+				$(this).on("click", function(){
+					$(this).css('opacity', '1.0');
+				});
+			});
+			
+			//button 이벤트
+			$('button').each(function(index){
+				if(index==0){
+					$(this).on("click", function(){
+						$('img').css('opacity', '1.0');
+					});
+				}
+				else{
+					$(this).on("click", function(){
+						$('img').css('opacity', '0.4');
+					});
+				}
+			});
+		});
+	</script>
+	<section id='imgbox'></section>
+	<section id='buttonbox'></section>
+</body>
+</html>
