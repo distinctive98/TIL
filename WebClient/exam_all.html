@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>My Page</title>
+
+	<style>
+		/*homework 부분*/
+		body{
+			margin-top : 0;
+			background-image : linear-gradient(to bottom, #ffffff, #ffffff, #f6d5ee);
+		}
+		
+		
+		/*header 부분*/
+		header{
+			width : 95%;
+			margin : 0 auto;
+			height : 200px;
+			background-image : linear-gradient(to right, #99e6ff, #f6d5ee);
+			text-align : center;
+		}
+		
+		header > div {
+			padding : 20px;
+		}
+		
+		header > div > h1 {
+			color : #737373;
+			text-shadow : 3px 3px 3px white;
+		}
+		
+		header > div > img {
+			float : right;		
+		}
+		
+				
+		a {
+			text-decoration : none;
+			font-size : 1em;
+		}
+		
+		header >nav > a {
+			margin-left : 200px;
+			margin-right : 100px;
+		}
+		
+		a:hover {
+			font-weight : bold;
+		}
+		
+		article {
+			width : 95%;
+			margin : 30px auto;
+			/*border : 1px solid gray;*/
+			border : 1px dotted gray;
+			border-radius : 10px;
+		}
+		
+		h2, ul, table, article > p{
+			margin-left : 30px;
+		}
+		
+		h2 {
+			color : #737373;
+		}
+		
+		h2 > span {
+			color : #96bfe9;
+		}
+	
+		table{
+			margin-bottom : 30px;
+			border : 1px solid #cce6ff;
+			border-collapse : collapse;
+		}
+		
+		th, td{
+			border : 1px dotted gray;
+			padding : 10px;
+			text-align : center;
+		}
+		
+		th{
+			color : #737373;
+			font-size : 1em;
+			background-color : #cce6ff;
+		}
+		
+		tr:hover {
+			opacity : 0.7;
+		}
+		
+		figure{
+			text-align : center;
+		}
+		
+		article > img {
+			width : 70%;
+		}
+		
+		article > img:hover {
+			opacity : 0.5;'
+		}
+		
+		aside {
+			text-align : center;
+			margin-bottom : 20px;
+		}
+		
+		iframe{
+			margin-top : 20px;
+			margin-bottom : 20px;
+		}
+		
+		footer{
+			background-image : linear-gradient(to right, #f6d5ee, #cce6ff, #f6d5ee);
+			text-align : center;
+			height : 50px;
+			padding-top : 20px;
+		}
+		
+		footer > span {
+			padding : 10px;
+		}
+		
+		/*바나나*/
+		li > span{
+			background-color : #dfdf20;
+		}
+		
+		/*My Card*/
+		article > nav {
+			margin-bottom : 10px;
+		}
+		
+		article > input {
+		margin-right : 10px;
+		}
+		
+		article > div {
+			text-align : center;
+		}
+		
+		article > div > section {
+		
+			border : 1px solid gray;
+			width : 800px;
+			margin : 0 auto;
+			margin-bottom : 20px;
+			
+			/*float : right;*/
+		}
+		
+		article > div > canvas {
+			border : 1px solid gray;
+			/*float : left;*/	
+		}
+		
+		article > div > section > img {
+		width : 120px;
+		height : 120px;
+		}
+		
+		#inputMsg {
+			width : 400px;
+		}
+		
+			
+	</style>
+
+</head>
+<body>
+	<header>
+		<div>
+			<h1>My Page</h1>
+			<img id="weatherImg" width="100">
+		</div>
+		<nav>
+			<a href="http://www.google.com">Google</a>
+			<a href="http://www.github.com">GitHub</a>
+			<a href="http://www.slack.com">Slack</a>
+		</nav>
+	</header>
+	
+	<section>
+		<article>
+			<h2>나의 <span>소개</span></h2>
+			<ul>
+				<li>이름 : 이영걸</li>
+				<li>별명 : YG</li>
+				<li>관심기술 : <a href="https://ko.wikipedia.org/wiki/%EC%8A%A4%ED%94%84%EB%A7%81_%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC"><i>Spring Framework</i></a></li>
+				<li>취미 : <span>바나나</span> 먹기</li>
+			</ul>
+		</article>
+		<article>
+			<h2>올해 최고의 <span>배달</span> 맛집</h2>
+			<table>
+				<tr>
+					<th>가게명</th>
+					<th>음식명</th>
+					<th>별점</th>
+				</tr>
+				<tr>
+					<td>후라이드 참 잘하는집 성수점</td>
+					<td>순살 간장치킨</td>
+					<td>★★★★☆</td>
+				</tr>
+				<tr>
+					<td>울엄마 김치찜 성수점</td>
+					<td>묵은지 삼겹김치찜</td>
+					<td>★★★★☆</td>
+				</tr>
+				<tr>
+					<td>전설의 짬뽕 서울숲점</td>
+					<td>차돌박이 짬뽕</td>
+					<td>★★★★★</td>
+				</tr>
+			</table>
+		</article>
+		<article>
+			<h2>자랑하고 싶은 <span>우리동네</span> 명소</h2>
+			<p>지난 5월 3일 미국의 커피브랜드 ‘블루보틀’의 한국 1호점이 서울 성수동 카페거리에 문을 열었다. 개점 첫 날 새벽부터 몰려든 인파로 뚝섬역 일대가 문전성시를 이루며 수많은 사람들의 방문 후기가 이어졌다.</p>
+			<figure>
+				<img src="http://70.12.113.182:8000/edu/images/blue_bottle.jpg">
+				<figcaption><a href="https://store.naver.com/restaurants/detail?entry=plt&id=1725895520&query=%EB%B8%94%EB%A3%A8%EB%B3%B4%ED%8B%80%EC%BB%A4%ED%94%BC%20%EC%84%B1%EC%88%98&tab=main"><i>블루 버틀 성수점</i></a></figcaption>
+			</figure>
+		</article>
+	</section>
+	<aside>
+		<article>
+			<iframe width="789" height="444" src="https://www.youtube.com/embed/uA9nkmBcUoo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			<!-- <video src="mediaexam/trailer.mp4" controls></video> --> 
+		</article>
+	</aside>
+	
+	<aside>
+		<article>
+			<h2>HTML5로 <span>크리스마스 카드</span> 만들기</h2>
+	
+			<nav>
+				<button id="saveCanvas">저장하기</button>
+				<button id="readCanvas">읽어오기</button>
+				<button id="deleteCanvas">지우기</button>
+			</nav>
+			
+			<nav>
+				<span>배경 칼라 : </span>
+				<input id="bgColor" type="color">
+				<span>테두리 칼라 : </span>
+				<input id="borderColor" type="color">
+				<span>메시지 칼라 : </span>
+				<input id="msgColor" type="color">
+			</nav>
+			
+			<nav>
+				<span>입력 메시지 : </span>
+				<input id="inputMsg">
+			</nav>	
+			
+			<div>
+				<canvas width="800px" height="300px"></canvas>
+			</div>
+			<div>
+				<section id="imgbox"></section>
+			</div>
+			
+		</article>
+	</aside>
+	
+	<footer>
+		<span><i>이 문서는 저작권에 보호받고 있습니다. 주의!</i></span>
+	</footer>
+	
+	<script>
+		window.onload = function(){
+			var request = new XMLHttpRequest();
+			request.onload = function(event) {
+				if (request.status == 200) {
+					var obj = JSON.parse(request.responseText);
+					var img = document.querySelector('#weatherImg');
+					img.src = "http://70.12.113.182:8000/edu/" + obj.img;
+				}
+			}
+			request.open("GET", "http://70.12.113.182:8000/edu/ajaxexam/content/weather.jsp", true);
+			request.send();
+		}
+		
+		var loadImages = function(){
+			//section태그에 img 삽입
+			var imgbox = document.querySelector('#imgbox');
+			for(var i=16; i<=33; i++){
+				imgbox.innerHTML += "<img id='img"+i+"' src='http://70.12.113.182:8000/edu/jsexam/kakao/g"+i+".png'>";
+			}
+		}
+	
+		//Drag&Drop, Canvas 부분
+		var section = document.querySelector("section");
+		var canvas = document.querySelector("canvas");
+		var ctx = canvas.getContext('2d');
+		
+		var loadDD = function(){
+			//img Dom 객체 생성 및 dragstart 이벤트 리스너 설정
+			var images = document.querySelectorAll("section > img");
+			for(var i=0; i<images.length; i++){
+				images[i].addEventListener("dragstart", dragged, false);
+			}		
+			canvas.addEventListener("dragover", dragover, false);
+			canvas.addEventListener("drop", dropped, false);	
+		}
+		var dragged = function(e){
+			console.log("dragged발동");
+			e.dataTransfer.setData('img', e.target.getAttribute('id'));
+			console.log("set : " + e.target.getAttribute('id'));
+			e.dataTransfer.setDragImage(e.target, 0, 0);
+		}
+		
+		var dragover = function(e){
+			console.log("dragover발동");
+			e.preventDefault();
+		}
+		
+		var dropped = function(e){
+			console.log("dropped발동");
+			e.preventDefault();
+			
+			var id = e.dataTransfer.getData('img');
+			console.log("get : " + id);
+			var img = document.getElementById(id);
+			
+			var posx=e.pageX-canvas.offsetLeft;
+			var posy=e.pageY-canvas.offsetTop;
+			
+			//img.style.width = "100px";
+			ctx.drawImage(img,posx,posy, 120, 120);
+		}
+		
+		//Web Storage 부분
+		var saveCanvas = document.getElementById('saveCanvas');
+		var readCanvas = document.getElementById('readCanvas');
+		var deleteCanvas = document.getElementById('deleteCanvas');
+		
+		saveCanvas.addEventListener("click", function(){
+			//alert(canvas.toDataURL());
+			localStorage.setItem("card", canvas.toDataURL());
+		});
+		
+		readCanvas.addEventListener("click", function(){
+			var loadImg = new Image();
+			loadImg.src = localStorage.getItem("card");
+			loadImg.onload = function(){
+				ctx.drawImage(loadImg, 0, 0);
+			}
+		});
+		
+		deleteCanvas.addEventListener("click", function(){
+			ctx.clearRect(0,0,canvas.width, canvas.height);
+		});
+		
+		//컬러 부분
+		var bgColor = document.querySelector('#bgColor');	
+		bgColor.addEventListener("change", function(e){
+			console.log("ChangeEvent : bgColor");
+			//ctx.fillStyle = e.target.value;
+			//ctx.fillRect(0, 0, canvas.width, canvas.height);
+			canvas.style.backgroundColor = e.target.value;
+		}, false);
+		
+		var borderColor = document.querySelector('#borderColor');
+		borderColor.addEventListener("change", function(e){
+			canvas.style.border = "5px solid " + e.target.value;
+		}, false);
+		
+		var msgColor = document.querySelector("#msgColor");
+		msgColor.addEventListener("change", function(e){
+			ctx.fillStyle = e.target.value;	
+		}, false)
+			
+		//문자 입력 부분
+		var inputMsg = document.querySelector("#inputMsg");
+		canvas.addEventListener("click", function(e){
+			var posx=e.pageX-canvas.offsetLeft;
+			var posy=e.pageY-canvas.offsetTop;
+			ctx.font = "30px Verdana";
+			ctx.fillText(inputMsg.value, posx, posy);
+		}, false)
+		
+		window.addEventListener("load", loadImages, false);
+		window.addEventListener("load", loadDD, false);
+	</script>
+	
+</body>
+</html>
