@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Query 추출 실습</h1>
+	<hr>
+	<form method="get" action="/sedu/querytest">
+		<span>이름 : </span><input type="text" name="name" value="듀크"><br>
+		<span>암호 : </span><input type="password" name="password"><br>
+		<span>나이 : </span><input type="number" name="age" required><br>
+		<span>성별 : </span>
+		<label><input type="radio" name="gender" value="남자">남자</label>
+		<label><input type="radio" name="gender" value="여자">여자</label><br>
+		<span>취미 : </span>
+		<label><input type="checkbox" name="habit" value="야구">야구</label>
+		<label><input type="checkbox" name="habit" value="축구">축구</label>
+		<label><input type="checkbox" name="habit" value="농구">농구</label>
+		<label><input type="checkbox" name="habit" value="실뜨기">실뜨기</label><br>
+		<span>좋아하는 색 : </span>
+		<select name="color">
+			<option></option>
+			<option>노랑</option>
+			<option>보랑</option>
+			<option>파랑</option>
+			<option>초랑</option>
+		</select><br>
+		<span>좋아하는 음식 : </span><br>
+		<select multiple name="food" size="4">
+			<option>붕어빵</option>
+			<option>호떡</option>
+			<option>핫도그</option>
+			<option>놀래미</option>
+			<option>수박</option>
+			<option>국수</option>
+		</select><br>
+		<span>의견 : </span><br>
+		<textarea rows="5" cols="30" name="opinion"></textarea><br>
+		<input type="submit" value="보내기">
+		<input type="reset" value="다시작성하기"><br>
+		<input type="hidden" name="secret1" value="비밀이야"><br>
+		<input type="hidden" name="secret2" value="너만아는">
+	</form>
+</body>
+</html>
