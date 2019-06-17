@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>	
+	.image{
+		border : 1px solid gray;
+		width : 150px;
+		margin: 10px 10px 10px 10px;
+		box-shadow : 5px 5px #cccccc;
+	}
+	
+	header > h2{
+		display : inline;
+		
+	}
+	
+	
+</style>
+
+</head>
+<body>
+	<script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+	<script>
+	
+		$(document).ready(function(){
+			$('.image').click(function(){
+				var param = $.param({id : $(this).attr('id')});
+				$.getJSON("/sedu/basket1", param, function(data){
+					$.each(data, function(key, value){
+						$('#printId').text(value);
+					});
+				});
+			});
+		});
+	
+	
+	/*
+		$(document).ready(function(){
+			$('.image').click(function(){
+				$.ajax({
+					url : "/sedu/basket1",
+					type : "GET",
+					dataType : "json",
+					data : $(this).attr('id'),
+					success : function(data){
+						$.each(data, function(key, value){
+							alert(value);
+							$('#printid').text(value);
+						});
+					}
+				});
+			});
+		});
+	*/
+	
+	
+	</script>
+	<header>
+		<h2>원하는 상품을 클릭해주세요!!</h2>
+		<h2 id="printId"></h2>
+	</header>
+	<hr>
+	<section id="imgbox">
+		<img src="http://70.12.113.182:8000/sedu/images/product1.png" class="image" id="p001">
+		<img src="http://70.12.113.182:8000/sedu/images/product2.png" class="image" id="p002">
+		<img src="http://70.12.113.182:8000/sedu/images/product3.png" class="image" id="p003">
+		<img src="http://70.12.113.182:8000/sedu/images/product4.png" class="image" id="p004">
+		<img src="http://70.12.113.182:8000/sedu/images/product5.png" class="image" id="p005">
+		<br>
+		<img src="http://70.12.113.182:8000/sedu/images/product6.png" class="image" id="p006">
+		<img src="http://70.12.113.182:8000/sedu/images/product7.png" class="image" id="p007">
+		<img src="http://70.12.113.182:8000/sedu/images/product8.png" class="image" id="p008">
+		<img src="http://70.12.113.182:8000/sedu/images/product9.png" class="image" id="p009">
+		<img src="http://70.12.113.182:8000/sedu/images/product10.png" class="image" id="p010">
+	</section>
+</body>
+</html>
