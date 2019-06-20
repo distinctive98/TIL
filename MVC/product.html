@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>
+	h1{
+		font-size : 3em;
+	}
+	
+	img {
+		width : 300px;
+		height : 250px;
+	}
+	
+	button{
+		border : 3px solid gray;
+		background-color : white;
+		margin-top : 30px;
+		padding : 10px 5px 10px 5px;
+		font-size : 2em;
+	}
+</style>
+
+</head>
+<body>
+	<h1>구매하고자 하는 상품을 선택하십시오.</h1>
+	<hr>
+	<section>
+		<a href="/mvc/product?pid=p001"><img src="http://70.12.113.182:8000/mvc/images/apple.png"></a>
+		<a href="/mvc/product?pid=p002"><img src="http://70.12.113.182:8000/mvc/images/banana.png"></a>
+		<a href="/mvc/product?pid=p003"><img src="http://70.12.113.182:8000/mvc/images/halabong.jpg"></a>
+		<br>
+		<button id="empty">장바구니 비우기</button>
+	</section>
+	
+	<script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$("#empty").click(function(){
+				$.getJSON("/mvc/product", function(data){
+					alert(data.msg);
+					//$.each(data, function(key, value){
+					//	alert(value);
+					//});
+				});
+			});
+		});
+	</script>
+</body>
+</html>
