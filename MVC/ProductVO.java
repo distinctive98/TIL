@@ -15,19 +15,19 @@ public class ProductVO {
 	public int getApple() {
 		return apple;
 	}
-	public void setApple() {
+	public void setApple(int apple) {
 		this.apple++;
 	}
 	public int getBanana() {
 		return banana;
 	}
-	public void setBanana() {
+	public void setBanana(int banana) {
 		this.banana++;
 	}
 	public int getOrange() {
 		return orange;
 	}
-	public void setOrange() {
+	public void setOrange(int orange) {
 		this.orange++;
 	}
 	

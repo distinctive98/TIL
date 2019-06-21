@@ -33,11 +33,11 @@ public class ProductServlet extends HttpServlet {
 		else {
 			ProductVO product = (ProductVO)session.getAttribute("product");			
 			if(pid.equals("p001"))
-				product.setApple();
+				product.setApple(1);
 			else if(pid.equals("p002"))
-				product.setBanana();
+				product.setBanana(1);
 			else //pid.equals("p003")
-				product.setOrange();
+				product.setOrange(1);
 			
 			url = "/jspexam/productView.jsp";
 		}
