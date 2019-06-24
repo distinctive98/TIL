@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Meeting Form</h1>
+	<hr>
+	<form method="post" action="/mvc/meeting">
+		<span>미팅 대상 : </span><input type="text" name="name"><br>
+		<span>미팅 목적 : </span><input type="text" name="title"><br>
+		<span>미팅 시간 : </span><input type="datetime-local" name="meetingDateTime"><br>
+		<input type="submit" value="등록">
+		<input type="reset" value="재작성">
+	</form>
+	
+	<hr>
+	
+	<form method="get" action="/mvc/meeting">
+		<span>정보 검색 : </span><input type="text" name="keyword">
+		<input type="submit" value="검색">
+	</form>
+	
+	<hr>
+	
+	<button id=checkSchedule>미팅 스케줄 보기</button>
+	
+	<script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$("#checkSchedule").click(function(){
+				location.href ="/mvc/meeting";
+			});
+		});
+	</script>
+</body>
+</html>
