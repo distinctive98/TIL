@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="h1" class="exam2.Homework" c:_0="국어" />
+	<bean id="h2" class="exam2.Homework" c:_0="영어" />
+	<bean id="h3" class="exam2.Homework" c:_0="수학" />
+	
+	<bean id="st1" class="exam2.Student" p:name="둘리" p:myHomework-ref="h1"/>
+	<bean id="st2" class="exam2.Student" p:name="또치" p:myHomework-ref="h3"/>
+	<bean id="st3" class="exam2.Student" p:name="도우너" p:myHomework-ref="h2"/>
+
+</beans>

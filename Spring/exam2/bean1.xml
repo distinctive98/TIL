@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="h1" class="exam2.Homework">
+		<constructor-arg value="국어" />
+	</bean>
+	<bean id="h2" class="exam2.Homework">
+		<constructor-arg value="영어" />
+	</bean>
+	<bean id="h3" class="exam2.Homework">
+		<constructor-arg value="수학" />
+	</bean>
+	<bean id="st1" class="exam2.Student">
+		<property name="name" value="둘리"/>
+		<property name="myHomework" ref="h1"/>
+	</bean>
+	<bean id="st2" class="exam2.Student">
+		<property name="name" value="또치"/>
+		<property name="myHomework" ref="h3"/>
+	</bean>
+	<bean id="st3" class="exam2.Student">
+		<property name="name" value="도우너"/>
+		<property name="myHomework" ref="h2"/>
+	</bean>
+
+</beans>
