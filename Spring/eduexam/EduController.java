@@ -8,7 +8,7 @@ import org.springframework.web.servlet.*;
 public class EduController{
 	
 	@RequestMapping("edu")
-	public ModelAndView edu(String name, int score) {
+	public ModelAndView edu(int score) {
 		ModelAndView mav = new ModelAndView();
 		
 		String viewName;
@@ -21,7 +21,6 @@ public class EduController{
 		else
 			viewName = "gradeD";
 		
-		mav.addObject("name", name);
 		mav.setViewName(viewName);
 		
 		return mav;
