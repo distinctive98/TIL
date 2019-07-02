@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>
+	h1{
+		text-shadow : 6px 6px 6px gray;
+	}
+	
+	input, button {
+		border-radius : 5px 5px 5px 5px;
+		margin-bottom : 5px;
+	}
+</style>
+
+</head>
+<body>
+	<h1>회원 정보를 입력하시오.</h1>
+	<hr>
+	<form method="post" action="/springedu/member">
+		<input type="text" name="name" placeholder="이름을 입력하세요"><br>
+		<input type="text" name="number" placeholder="전화번호를 입력하세요"><br>
+		<input type="text" name="account" placeholder="계정을 입력하세요"><br>
+		<input type="text" name="password" placeholder="패스워드를 입력하세요"><br>
+		<button type="submit">등록</button>
+		<button type="reset">재작성</button>
+	</form>
+</body>
+</html>
