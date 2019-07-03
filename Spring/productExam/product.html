@@ -39,7 +39,7 @@
 	<script>
 		$(document).ready(function(){
 			$("#empty").click(function(){
-				$.getJSON("/springedu/product", function(data){
+				$.getJSON("/springedu/product/msg", function(data){
 					alert(data.msg);
 					//$.each(data, function(key, value){
 					//	alert(value);
