@@ -20,7 +20,7 @@ public class NewsDAOTest {
 		boolean result = dao.insert(vo);
 		System.out.println("insert 결과 : " + result);
 	}
-	*/
+	
 	@Test
 	public void testUpdate() {
 		NewsVO vo = new NewsVO();
@@ -32,6 +32,7 @@ public class NewsDAOTest {
 		boolean result = dao.update(vo);
 		System.out.println("update 결과 : " + result);
 	}
+	*/
 	
 	/*
 	@Test
@@ -54,5 +55,22 @@ public class NewsDAOTest {
 		System.out.println(vo.toString());
 	}
 	*/
-
+	/*
+	@Test
+	public void testListWriter() {
+		ArrayList<NewsVO> list = (ArrayList<NewsVO>)dao.listWriter("듀크");
+		
+		for(NewsVO vo : list)
+			System.out.println(vo.toString());
+	}
+	*/
+	
+	@Test
+	public void testSearch() {
+		ArrayList<NewsVO> list = (ArrayList<NewsVO>)dao.search("도라지", "content");
+		
+		for(NewsVO vo : list)
+			System.out.println(vo.toString());
+	}
+	
 }

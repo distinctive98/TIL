@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.*;
+import java.util.*;
 
 import javax.servlet.*;
 import javax.servlet.annotation.*;
@@ -16,26 +17,60 @@ public class NewsServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		NewsDAO dao = new NewsDAO();
 		String action = request.getParameter("action");
+		ArrayList<NewsVO> list = null;
 		
-		//action==read || action==delete의 경우
+		HttpSession session = request.getSession();
+		
 		if(action != null) {
-			int id = Integer.parseInt(request.getParameter("newsid"));
-			if(action.equals("read")) {
-				NewsVO vo = dao.listOne(id);
-				dao.update(vo);
-				request.setAttribute("listOne", vo);
+			if(action.equals("read") || action.equals("delete")) {
+				int id = Integer.parseInt(request.getParameter("newsid"));
+
+				//action==read
+				if(action.equals("read")) {
+					NewsVO vo = dao.listOne(id);
+					dao.update(vo);
+					request.setAttribute("listOne", vo);
+					
 				//action==delete
-			} else {
-				boolean result = dao.delete(id);
-				if(result) {
-					request.setAttribute("msg", "삭제 완료");
 				} else {
-					request.setAttribute("msg", "삭제 실패");
+					boolean result = dao.delete(id);
+					
+					if(result) {
+						request.setAttribute("msg", "삭제 완료");
+					} else {
+						request.setAttribute("msg", "삭제 실패");
+					}
 				}
+				
+				if(session.getAttribute("selectedList") == null) {
+					list = (ArrayList<NewsVO>) dao.listAll();
+				} else {
+					list = (ArrayList<NewsVO>) session.getAttribute("selectedList");
+				}
+				
+			} else {
+				//action==search
+				if(action.equals("search")) {
+					String searchType = request.getParameter("searchType");
+					String key = request.getParameter("key");
+					list = (ArrayList<NewsVO>) dao.search(key, searchType);
+				//action==listwriter
+				} else {
+					String writer = request.getParameter("writer");
+					list = (ArrayList<NewsVO>) dao.listWriter(writer);
+				}
+				
+				if(session.getAttribute("selectedList") == null) {
+					session.setAttribute("selectedList", list);
+				}
+				
+				request.setAttribute("isSearch", "true");
 			}
+		} else {
+			session.invalidate();
 		}
-		
-		request.setAttribute("list", dao.listAll());
+		 
+		request.setAttribute("list", list != null ? list : dao.listAll());
 		request.getRequestDispatcher("/jspexam/news.jsp").forward(request, response);
 		
 	}

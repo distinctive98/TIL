@@ -43,6 +43,76 @@ public class NewsDAO {
 		return list;
 	}
 	
+	public List<NewsVO> listWriter(String writer){
+		ArrayList<NewsVO> list = new ArrayList<>();
+		
+		Connection conn = connectDB();
+		Statement stmt = null;
+		ResultSet rs = null;
+		
+		String sql = 
+				"SELECT ID, WRITER, TITLE, TO_CHAR(WRITEDATE, 'YYYY-MM-DD'), CNT "
+			+ "FROM NEWS "
+			+ "WHERE WRITER = '" + writer + "'";
+		
+		NewsVO vo;
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			
+			while (rs.next()) {
+				vo = new NewsVO();
+				vo.setId(rs.getInt(1));
+				vo.setWriter(rs.getString(2));
+				vo.setTitle(rs.getString(3));
+				vo.setWritedate(rs.getString(4));
+				vo.setCnt(rs.getInt(5));
+				list.add(vo);
+			}
+		} catch(Exception e) {
+			
+		} finally {
+			close(conn, stmt, rs);
+		}
+		
+		return list;
+	}
+	
+	public List<NewsVO> search(String key, String searchType){
+		ArrayList<NewsVO> list = new ArrayList<>();
+		
+		Connection conn = connectDB();
+		Statement stmt = null;
+		ResultSet rs = null;
+		
+		String sql = 
+					"SELECT ID, WRITER, TITLE, TO_CHAR(WRITEDATE, 'YYYY-MM-DD'), CNT "
+				+ "FROM NEWS "
+				+ "WHERE " + searchType + " LIKE '%" +key+ "%'";
+		
+		NewsVO vo;
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			
+			while (rs.next()) {
+				vo = new NewsVO();
+				vo.setId(rs.getInt(1));
+				vo.setWriter(rs.getString(2));
+				vo.setTitle(rs.getString(3));
+				vo.setWritedate(rs.getString(4));
+				vo.setCnt(rs.getInt(5));
+				list.add(vo);
+			}
+		} catch(Exception e) {
+			
+		} finally {
+			close(conn, stmt, rs);
+		}
+		
+		return list;
+	}
+	
 	public NewsVO listOne(int id) {
 		NewsVO vo = new NewsVO();
 		
