@@ -1,0 +1,23 @@
+<svg width="200" height="300" xmlns="http://www.w3.org/2000/svg">
+	 <g transform="translate(-100, -100)">
+		<g style="fill:#0066cc">
+			<circle cx="200" cy="200" r="100"></circle>
+			<path d="M200, 400 L113, 250 L287, 250"></path>
+		</g>
+		
+		<g>
+			<g style="fill:#cccccc">
+				<circle cx="200" cy="200" r="90"></circle>
+			</g>			
+			<g style="fill:#0066cc">
+				<circle cx="200" cy="200" r="80"></circle>
+			</g>			
+			<g>
+				<text x="155" y="255" font-size="160px" font-family="Franklin Gothic Heavy" style="fill:white">P</text>
+			</g>
+			<g style="fill:#cccccc">
+				<path d="M135, 145 L125, 155 L265, 255 L275, 245Z"></path>
+			</g>				
+		</g>
+	</g>	
+</svg>
