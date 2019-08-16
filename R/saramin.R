@@ -3,11 +3,10 @@ t <- htmlParse(read_html("http://www.saramin.co.kr/zf_user/search?search_area=ma
 #기술이름
 tech_name <- xpathSApply(t,"//div[@class='info_sfilter smart_filter']//label[@class='lbl_sfilter']/span[@class='txt']", xmlValue)
 tech_name <- gsub("[[:punct:]]", "", tech_name)
-tech_name <- trimws(tech_name)
 
 #채용건수
 info_count <- xpathSApply(t,"//div[@class='info_sfilter smart_filter']//span[@class='count']", xmlValue)
 info_count <- gsub("[[:punct:]]", "", info_count)
-info_count <- trimws(info_count)
 
 saramin <- data.frame(tech_name, info_count)
+write.csv(saramin, "saramin.csv", row.names = F)
