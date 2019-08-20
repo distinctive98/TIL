@@ -52,4 +52,4 @@ repeat{
   if(index %% 3 == 0 && index != total)
     remDr$executeScript("var dom=document.querySelectorAll('#mCSB_3_container > ul > li')[arguments[0]]; dom.scrollIntoView();", list(index))
 }
-write.csv(starbucks, "starbucks.csv")
+write.csv(starbucks, "starbucks.csv", row.names = F)
