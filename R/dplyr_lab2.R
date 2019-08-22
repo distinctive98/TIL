@@ -75,3 +75,7 @@ mpg$drv <- ifelse(!mpg$drv %in% c("4", "f", "r"), NA, mpg$drv)
 #12-2
 boxplot(mpg$cty)$stats
 mpg$cty <- ifelse(!(9<=mpg$cty & mpg$cty<=26), NA, mpg$cty)
+boxplot(mpg$cty)
+
+#12-3
+mpg %>% filter(!is.na(drv)) %>% group_by(drv) %>% summarise(mean = mean(cty, na.rm = T))
